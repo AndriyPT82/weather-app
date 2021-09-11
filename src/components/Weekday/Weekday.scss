@@ -1,0 +1,29 @@
+.weekday {
+  font-size: 20px;
+  width: 180px;
+  gap: 30px;
+  padding: 20px 0;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+
+    & img {
+      height: 150px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.207);
+    border: 1px solid rgba(138, 138, 138, 0.522);
+  }
+
+  &:active {
+    background-color: rgba(108, 108, 108, 0.344);
+    border: 1px solid rgb(255, 255, 255);
+  }
+}

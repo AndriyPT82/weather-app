@@ -1,0 +1,65 @@
+.current-day {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  width: 100%;
+  color: white;
+
+
+  &__main-info {
+    border: 3px solid rgba(255, 255, 255, 0.618);
+    box-shadow: 2px 2px 25px rgb(255, 255, 255);
+    min-width: 270px;
+    padding: 10px 20px;
+    gap: 20px;
+  }
+
+  &__icon {
+    position: relative;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.68);
+    border: 3px solid rgba(255, 255, 255, 0.68);
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+
+    & img {
+      width: 250px;
+    }
+  }
+
+  &__img-description {
+    position: absolute;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: none;
+    width: 100%;
+    bottom: 25px;
+  }
+
+  &__temp {
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  &__city-name {
+    height: min-content;
+    margin-top: 100px;
+    border-bottom: 3px solid #fff;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 20px;
+    gap: 10px;
+
+    & span {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+}

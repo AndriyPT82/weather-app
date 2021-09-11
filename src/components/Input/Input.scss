@@ -1,0 +1,85 @@
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  left: calc(50% - 250px);
+  width: 500px;
+
+
+  &__controllers {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 50px;
+  }
+
+  &__field {
+    flex-grow: 1;
+    padding-left: 15px;
+    border-top-left-radius: 15px;
+    font-size: 24px;
+    outline: none;
+
+    &::placeholder {
+      color: rgb(145, 145, 145);
+      font-size: 18px;
+    }
+  }
+
+  &__button {
+    font-size: 24px;
+    color: white;
+    width: 100px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-color: rgb(210, 210, 210);
+    border: 1px solid rgb(211, 211, 211);
+    border-top-right-radius: 0;
+
+    background-color: rgb(88, 88, 88);
+    transition-duration: 0.4s;
+
+    &:hover {
+      background-color: #969696; /* Green */
+    }
+
+    &:active {
+      background-color: #828282; /* Green */
+      font-size: 22px;
+      color: white;
+    }
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    color: rgb(100, 100, 100);
+    font-size: 20px;
+    gap: 7px;
+    padding: 15px;
+    margin: 2px 100px 0 0;
+    border: 1px solid #000;
+    background-color: #fff;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  &__option {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      color: rgb(0, 0, 0);
+    }
+  }
+}
