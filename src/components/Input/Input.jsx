@@ -35,10 +35,10 @@ export const Input = ({ setCoords }) => {
     const index = event.currentTarget.value || 0;
 
     setCoords([
-      foundCities[index].latitude,
-      foundCities[index].longitude,
+      foundCities[index].center[1],
+      foundCities[index].center[0],
     ]);
-    
+
     setFoundCities([])
     setTimeout(() => {
       handleReset()
@@ -49,17 +49,15 @@ export const Input = ({ setCoords }) => {
     debounce(setAppliedQuery, 500)
     , [])
 
+
   useEffect(() => {
     if (appliedQuery.length > 2) {
-      fetch(`http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=10&offset=0&namePrefix=${appliedQuery}&types=CITY&sort=-population`, {
-        "method": "GET",
-        "headers": {
-          "content-type": "application/json",
-          data: { "query": '{ cities }' }
-        }
-      })
+      fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${appliedQuery}.json?access_token=pk.eyJ1IjoiYW5kcml5cHQiLCJhIjoiY2t0aWhmOWtnMTF5cjJucGVsNzdrcTJreiJ9.kbk-cwEPs5uiP6trdViiow`)
         .then(response => response.json())
-        .then(res => setFoundCities(res.data))
+        .then(res => {
+          console.log(res.features);
+          return setFoundCities(res.features)
+        })
         .catch(err => { console.error(err) });
     }
   }, [appliedQuery])
@@ -89,18 +87,18 @@ export const Input = ({ setCoords }) => {
         < ul className="input__options">
           {
             foundCities.map((city, index) => {
-              const { name, country } = city;
+              const { place_name, country } = city;
 
               return (
                 <li
                   value={index}
                   className="input__option"
                   onClick={(event) => {
-                    setInputValue(name)
+                    setInputValue(place_name)
                     handleSubmit(event)
                   }}
                 >
-                  <span> {name}</span>
+                  <span> {place_name}</span>
                   <span>{country}</span>
                 </li>
               )
